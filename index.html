@@ -4,6 +4,17 @@
     
   </head>
   <body>
-    
+    <input id="input" type="text">
+    <button id="button" onclick="handleClick()">Submit</button>
+    <h1 id="response"></h1>
+    <script>
+      const ws = new WebSocket("ws://localhost:8080");
+      ws.addEventListener("message", event => {
+          document.getElementById("response").innerHTML += `<br>${event.data}`;
+      });
+      function handleClick() {
+          ws.send(document.getElementById("input").value);
+      }
+    </script>
   </body>
 </html>
