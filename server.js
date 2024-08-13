@@ -4,7 +4,7 @@ const wss = new WebSocketServer({ port: 8080 });
 let array = [];
 
 wss.on("listening", () => {
-    console.log("Websocket server is online");
+    console.log("Websocket server is running");
 });
 
 wss.on("connection", ws => {

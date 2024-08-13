@@ -1,4 +1,26 @@
 {
+  "name": "simple-chat",
+  "version": "1.0.0",
+  "description": "A very basic chat website using websockets",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Geomty/simple-chat.git"
+  },
+  "keywords": [
+    "chat",
+    "websocket"
+  ],
+  "author": "Geomty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Geomty/simple-chat/issues"
+  },
+  "homepage": "https://github.com/Geomty/simple-chat#readme",
   "dependencies": {
     "ws": "^8.18.0"
   }
