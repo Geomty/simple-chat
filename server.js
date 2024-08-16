@@ -14,4 +14,7 @@ wss.on("connection", ws => {
             i.send(data.toString());
         }
     });
+    ws.on("close", () => {
+        array.splice(array.indexOf(ws), 1);
+    });
 });
