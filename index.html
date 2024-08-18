@@ -12,13 +12,14 @@
     <meta name="og:description" content="A very basic chat website using websockets">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   </head>
   <body>
     <div class="md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-1/2 md:h-5/6 h-screen flex flex-col md:border md:border-black">
       <div id="messages" class="flex-1 p-4 flex flex-col-reverse gap-3 overflow-auto text-2xl border border-black"></div>
-      <div class="flex flex-row gap-3 p-3">
-        <input id="input" placeholder="Type a message" class="flex-1 h-12 pl-2 text-2xl border border-black">
-        <button id="button" class="p-2 border border-black" onclick="handleClick()">Send</button>
+      <div class="p-3 flex flex-row gap-3">
+        <input id="input" placeholder="Type a message" class="flex-1 h-12 pl-2 text-2xl focus:outline-none border border-black">
+        <button id="button" class="w-12 h-12 p-2 flex justify-center items-center border border-black" onclick="handleClick()"><span class="material-symbols-outlined">send</span></button>
       </div>
     </div>
     <script src="./index.js"></script>
