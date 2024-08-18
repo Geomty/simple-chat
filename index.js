@@ -1,6 +1,9 @@
+const color = generateColor();
+
 const ws = new WebSocket("ws://localhost:8080");
 ws.addEventListener("message", event => {
-    $("#messages").prepend(`<p>${event.data}</p>`);
+    const data = JSON.parse(event.data);
+    $("#messages").prepend(`<p style="color:${data.color}">${data.message}</p>`);
 });
 
 let focused = false;
@@ -14,8 +17,19 @@ $(document).on("keypress", event => {
 function handleClick() {
     const value = $("#input").val();
     if (value.length) {
-        ws.send(value);
+        ws.send(JSON.stringify({ color, message: value }));
         $("#input").val("");
         setTimeout(() => $("#messages").scrollTop($("#messages").height()), 1);
     }
+}
+
+function generateColor() {
+    let arr = [];
+    for (i=0;i<3;i++) arr.push(Math.floor(Math.random()*256));
+    arr = arr.map(color => {
+        let hex = color.toString(16);
+        if (hex.length == 1)  hex = `0${hex}`;
+        return hex;
+    });
+    return `#${arr.join("")}`;
 }
