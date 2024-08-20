@@ -1,5 +1,16 @@
 const color = generateColor();
 
+function generateColor() {
+    let arr = [];
+    for (i=0;i<3;i++) arr.push(Math.floor(Math.random()*256));
+    arr = arr.map(color => {
+        let hex = color.toString(16);
+        if (hex.length == 1)  hex = `0${hex}`;
+        return hex;
+    });
+    return `#${arr.join("")}`;
+}
+
 const ws = new WebSocket("ws://localhost:8080");
 ws.addEventListener("message", event => {
     const data = JSON.parse(event.data);
@@ -21,15 +32,4 @@ function handleClick() {
         $("#input").val("");
         setTimeout(() => $("#messages").scrollTop($("#messages").height()), 1);
     }
-}
-
-function generateColor() {
-    let arr = [];
-    for (i=0;i<3;i++) arr.push(Math.floor(Math.random()*256));
-    arr = arr.map(color => {
-        let hex = color.toString(16);
-        if (hex.length == 1)  hex = `0${hex}`;
-        return hex;
-    });
-    return `#${arr.join("")}`;
 }
