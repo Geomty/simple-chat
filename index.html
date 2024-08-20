@@ -15,11 +15,15 @@
   </head>
   <body class="bg-gray-800">
     <div class="md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-1/2 md:h-5/6 h-screen flex flex-col">
-      <div id="messages" class="flex-1 p-4 flex flex-col-reverse gap-3 overflow-auto text-2xl bg-gray-700 rounded-t-2xl"></div>
-      <div class="p-3 flex flex-row gap-3 bg-gray-600 rounded-b-2xl">
+      <div id="messages" class="flex-1 p-4 flex flex-col-reverse gap-3 overflow-auto text-2xl bg-gray-700 md:rounded-t-2xl"></div>
+      <div class="p-3 flex flex-row gap-3 bg-gray-600 md:rounded-b-2xl">
         <input id="input" placeholder="Type a message..." class="flex-1 h-12 pl-2 text-2xl focus:outline-none bg-transparent text-gray-100">
         <button id="button" class="w-12 h-12 p-2 flex justify-center items-center bg-gray-500 rounded-xl" onclick="handleClick()"><img src="./assets/send.svg"/></button>
       </div>
+    </div>
+    <div class="md:flex hidden absolute top-1/2 left-[87.5%] -translate-x-1/2 -translate-y-1/2 flex-row items-center gap-2">
+      <p class="text-xl text-gray-100">Username:</p>
+      <input id="username" placeholder="Anonymous" style="width:10vw" class="py-1 px-2 bg-gray-700 text-xl text-gray-100 focus:outline-none rounded-xl">
     </div>
     <script src="./index.js"></script>
   </body>
