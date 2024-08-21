@@ -28,6 +28,14 @@ ws.addEventListener("message", event => {
     $("#messages").prepend(`<p style="color:${data.color}" class="whitespace-nowrap">${data.username}: ${data.message}</p>`);
 });
 
+// Error handling
+
+ws.addEventListener("error", () => {
+    $("#messages").prepend('<p class="text-red-500">An error has occured...</p>');
+    $("#input").prop("disabled", true);
+    $("#button").prop("disabled", true);
+});
+
 // Detect mouse and keyboard
 
 let focused = false;
